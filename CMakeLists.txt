@@ -34,7 +34,7 @@ CPM_ForceOnlyOneModuleVersion()
 CPM_InitModule(${CPM_MODULE_NAME})
 
 #------------------------------------------------------------------------------
-# Google Test
+# BOX2D
 #------------------------------------------------------------------------------
 # Google test as an external project is a bad idea! You really should add it
 # as a subdirectory so that it can capture your compiler flags
@@ -46,9 +46,9 @@ CPM_EnsureRepoIsCurrent(
   USE_CACHING TRUE
   )
 
-set(BOX2D_INSTALL OFF)
-set(BOX2D_BUILD_EXAMPLES OFF)
-set(BOX2D_BUILD_STATIC ON)
+set(BOX2D_INSTALL OFF CACHE BOOL "Install box2d")
+set(BOX2D_BUILD_EXAMPLES OFF CACHE BOOL "Build box2d examples (requires OpenGL).")
+set(BOX2D_BUILD_STATIC ON CACHE BOOL "Build static box2d library.")
 
 # Add gtest now that we have the appropriate flags set.
 add_subdirectory(${BOX2D_DIR}/Box2D)
